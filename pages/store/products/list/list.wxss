@@ -1,0 +1,42 @@
+.icons-img{
+ height: 44px;
+ width: 44px
+}
+.list-father{
+    margin: 20px; 
+    display: flex;
+    justify-content: space-between
+}
+.icons-text{
+ 
+    font-size: 10px
+}
+
+/*购买界面开始*/
+.show-items{ 
+    display: flex;
+    justify-content: space-between;
+}
+.show-item-img{
+  flex: 1;
+}
+.show-item-content{
+   flex: 1;
+}
+.price{
+color: deeppink
+}
+.show-item-button{
+}
+/*购买界面结束*/
+.buy-button{
+  margin:20rpx;
+  border-radius: 10rpx;
+ background-color: #8EC5FC;
+background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+
+}
+
+.item-title{
+  font-size: 30rpx;
+}

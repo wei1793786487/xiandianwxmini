@@ -1,0 +1,32 @@
+<!-- 轮播图 -->
+<view>
+    <swiper autoplay="true">
+        <block wx:for="{{imgUrls}}" wx:index="index">
+            <swiper-item>
+                <navigator>
+                    <image src="{{item.url}}" style="width:100%;"  />
+                </navigator>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+<!-- 小界面 -->
+<view class="list-father">
+    <view wx:for="{{icons}}" wx:key="index">
+        <image class="icons-img" src="{{item.img}}"  />
+        <view class="icons-text">{{item.name}}</view>
+    </view>
+</view>
+<!-- 商品界面 -->
+<view class="show-items" wx:for="{{goods}}" wx:key="{{index}}">
+    <view class="show-item-img">
+        <image style="height:80rpx;width:200rpx" src="{{item.img}}"  />
+    </view>
+    <view class="show-item-content">
+            <view class="item-title">{{item.title}}</view>
+            <view class="price">￥{{item.price}}</view>
+    </view>
+    <view class="show-item-button">
+        <button size="mini" bindtap="detail" data-id="{{item.id}}" class="buy-button">买它</button>
+    </view>
+</view>

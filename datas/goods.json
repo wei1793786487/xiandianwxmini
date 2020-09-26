@@ -1,0 +1,23 @@
+{    
+
+    "data": [
+        {
+            "id": 1,
+            "title": "openstack课程",
+            "price": "120",
+            "img": "/res/manager/tabs/bg1.jpg"
+        },
+        {
+            "id": 2,
+            "title": "云计算课程",
+            "price": "120",
+            "img": "/res/manager/tabs/bg2.jpg"
+        },
+        {
+            "id": 3,
+            "title": "如何让富婆开心",
+            "price": "666",
+            "img": "/res/manager/tabs/fupo.jpg"
+        },
+    ]
+}

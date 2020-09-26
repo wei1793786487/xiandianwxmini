@@ -1,0 +1,19 @@
+<!-- 图片去 -->
+<view>
+    <image style="width:100%; margen" src="{{chooseData.img}}"  />
+</view>
+<!-- 价格与购买 -->
+<view class="buy-info">
+    <text >价格:{{chooseData.price}}</text>
+    <button size="mini" bindtap="buy" >购买</button>
+</view>
+<!-- 描述 -->
+<view class="des">
+    <text>{{chooseData.des}}</text>
+</view>
+<!-- 订单界面 -->
+<view class="order">
+      <image  class="shop-img" src="./shop.png" />
+     <view class="price"> {{buy_num}}件商品共{{buy_num}}元</view>
+    <button size="mini"  class="submit">生成订单</button>
+</view>
