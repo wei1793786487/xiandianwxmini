@@ -92,5 +92,9 @@ Page({
       buy_all_price: price
     })
     
+  },
+  goOrder:function(){
+  //  订单
+  wx.navigateTo({url:"/pages/store/order/detail/detail"})
   }
 })

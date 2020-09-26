@@ -1,9 +1,12 @@
 App({
   onLaunch: function () {
     let shops = wx.getStorageSync("shop");
-    console.log(shops)
+   let money = wx.getStorageSync("money");
     if (shops === null||shops==="") {
       wx.setStorageSync("shop", [])
+    }
+      if (money === null||money==="") {
+      wx.setStorageSync("money", 0)
     }
     console.log('App Launch')
   },
