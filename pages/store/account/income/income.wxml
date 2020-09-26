@@ -1,1 +1,26 @@
-我是充值界面
+<view>
+    <input class="input" type="number" bindblur="bindblurHandle" value="0" placeholder="请输入要充值的金额"  />
+</view>
+<!-- 充值区 -->
+<view style="margin-top:200rpx "> 
+    <radio-group bindchange="chance">
+        <view  class="pay" >
+            <image style="height:100rpx;width:100rpx;" src="/res/icons/icon_qp.png"  />
+            <view class="paymsg" >快捷支付</view>
+            <radio  class="rad" value="0" checked="true"/>
+        </view>
+         <view  class="pay" >
+            <image style="height:100rpx;width:100rpx;" src="/res/icons/icon_yl.png"  />
+            <view class="paymsg" >银联支付</view>
+            <radio  class="rad" value="1"/>
+        </view>
+         <view  class="pay" >
+            <image style="height:100rpx;width:100rpx;" src="/res/icons/icon_wx.png"  />
+            <view class="paymsg" >微信支付</view>
+            <radio  class="rad" value="2"/>
+        </view>
+    </radio-group>
+</view>
+<view class="botton"> 
+<button class="button" bindtap="summit">确认</button>
+</view>

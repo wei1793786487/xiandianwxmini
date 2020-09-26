@@ -1,0 +1,28 @@
+.input{
+    margin-top:20rpx; 
+    border-bottom: 1px solid gray;
+}
+.pay{
+    height:100rpx;width:100%; display: flex; justify-content: space-between;
+    margin-bottom: 20rpx
+}
+.pay image{
+    margin:0 20rpx; 
+}
+.paymsg{
+    flex: 1;
+    line-height: 110rpx
+}
+.rad{
+    margin-top: 30rpx;
+    margin-right:40rpx; 
+}
+.button{
+    background-color: red;
+    color: white
+}
+.botton{
+      position: fixed;
+    bottom: 0;
+    width: 100%;
+}
