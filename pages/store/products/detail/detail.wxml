@@ -14,6 +14,6 @@
 <!-- 订单界面 -->
 <view class="order">
       <image  class="shop-img" src="./shop.png" />
-     <view class="price"> {{buy_num}}件商品共{{buy_num}}元</view>
+     <view class="price"> {{buy_num}}件商品共{{buy_all_price}}元</view>
     <button size="mini"  class="submit">生成订单</button>
 </view>

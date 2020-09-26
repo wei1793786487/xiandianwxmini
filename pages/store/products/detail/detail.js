@@ -2,6 +2,7 @@ Page({
   data: {
     id: "",
     buy_num: 0,
+    buy_all_price: 0,
     data: [
       {
         "id": 1,
@@ -42,7 +43,17 @@ Page({
         return;
       }
     });
-    console.log(this.data.chooseData)
+    // 获取购物车
+    let shops = wx.getStorageSync("shop")
+    let price = 0;
+    shops.forEach(function (element) {
+      price += parseInt(element.price);
+    });
+    this.setData({
+      buy_num: shops.length,
+      buy_all_price: price
+    })
+    // console.log(this.data.chooseData)
   },
   onReady: function () {
     console.log("onReady")
@@ -66,9 +77,20 @@ Page({
     console.log("onShareAppMessage")
   },
   buy: function () {
+    //将购买的放入储存
+    let shops = wx.getStorageSync("shop");
+    shops.push(this.data.chooseData);
+    wx.setStorageSync("shop", shops)
+    // 刷新购物车
+    //重复代码，需优化
+    let price = 0;
+    shops.forEach(function (element) {
+      price += parseInt(element.price);
+    });
     this.setData({
-      buy_num:this.data.buy_num++
+      buy_num: shops.length,
+      buy_all_price: price
     })
-
+    
   }
 })
