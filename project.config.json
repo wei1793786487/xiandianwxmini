@@ -68,6 +68,20 @@
 					"id": -1,
 					"name": "pages/store/account/income/income",
 					"pathName": "pages/store/account/income/income",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/store/account/account/account",
+					"pathName": "pages/store/account/account/account",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/store/history/payout/payout",
+					"pathName": "pages/store/history/payout/payout",
 					"scene": null
 				}
 			]

@@ -1,4 +1,4 @@
-
+var util = require('../../../../utils/util.js')
 Page({
   data: {
     order_id: "66666666666666",
@@ -7,10 +7,17 @@ Page({
     is_pay: false,
     // 0为会员卡支付，1为微信支付
     payType: "0",
-    hava_money: 1
+    hava_money: 1,
+    pay_log: [],
+    oder_list: []
   },
 
   onLoad: function (options) {
+    console.log(options)
+    //获取付款日志
+    let pay_log = wx.getStorageSync("pay_log")
+    //获取订单列表
+    let order_list = wx.getStorageSync("order_list")
     //生成uuid
     var uuid = this.generateUuid();
     //获取商品的列表
@@ -20,8 +27,9 @@ Page({
     shop.forEach(function (element) {
       price += parseInt(element.price);
     });
-
     this.setData({
+      order_list:order_list,
+      pay_log: pay_log,
       hava_money: money,
       shop_list: shop,
       order_id: uuid,
@@ -33,10 +41,10 @@ Page({
     return Number(Math.random().toString().substr(3, length) + Date.now()).toString(36);
   },
   pay: function () {
-    if(this.data.is_pay){
+    if (this.data.is_pay) {
       wx.showToast({
-        icon:"none",
-        title:"你已经付款了"
+        icon: "none",
+        title: "你已经付款了"
       })
       return;
     }
@@ -51,7 +59,7 @@ Page({
           content: "你的会员卡余额不足,是否前往充值",
           success: (res => {
             if (res.confirm) {
-              wx.navigateTo({url:"/pages/store/account/income/income"})
+              wx.navigateTo({ url: "/pages/store/account/income/income" })
             }
           })
         })
@@ -65,7 +73,7 @@ Page({
     })
   },
   payload: function (type) {
-     let that = this;
+    let that = this;
     let tilte = ""
     if (type === 0) {
       tilte = "模拟会员卡支付"
@@ -81,20 +89,32 @@ Page({
       wx.showToast({
         title: "支付成功"
       })
-      if(type===0){
-      let money=that.data.hava_money-that.data.all_price;
+      if (type === 0) {
+        let money = that.data.hava_money - that.data.all_price;
         that.setData({
-        hava_money: money,
-        is_pay: true,
-      })
-      wx.setStorageSync("money",money)
+          hava_money: money,
+          is_pay: true,
+        })
+        wx.setStorageSync("money", money)
       }
       that.setData({
         is_pay: true,
       })
     }, 2000);
-  //清空购物 
- wx.setStorageSync("shop", [])
- }
+
+    //生成支付日志
+    let logs = {
+      tilte: this.data.shop_list[0].title + "等" + this.data.shop_list.length + "个",
+      order_id: this.data.order_id,
+      money: this.data.all_price,
+      date: util.formatTime(new Date()),
+      pay_type: type
+    }
+    this.data.pay_log.push(logs)
+    wx.setStorageSync("pay_log", this.data.pay_log)
+    //清空购物 
+    wx.setStorageSync("shop", [])
+
+  }
 
 })

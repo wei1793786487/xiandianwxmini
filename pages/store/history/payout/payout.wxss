@@ -1,0 +1,25 @@
+.content{
+    display: flex;
+    justify-content: space-between;
+    border-top:1px solid grey;
+    border-bottom:1px solid gray;
+    margin: 50rpx;
+}
+.order_id{
+    font-size: 30rpx;
+    color: gray;
+    margin-top:10rpx;
+    margin-bottom:10rpx;
+    
+}
+.sapnd{
+    color: red;
+    margin: 70rpx; 
+}
+.name{
+   margin-top: 20rpx;
+}
+.time{
+   margin-bottom: 20rpx;
+
+}

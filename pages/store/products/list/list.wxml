@@ -27,6 +27,6 @@
             <view class="price">￥{{item.price}}</view>
     </view>
     <view class="show-item-button">
-        <button size="mini" bindtap="detail" data-id="{{item.id}}" class="buy-button">买它</button>
+        <button size="mini" bindtap="detail" data-id="{{item.id}}" class="buy-button">查看详情</button>
     </view>
 </view>

@@ -94,7 +94,14 @@ Page({
     
   },
   goOrder:function(){
-  //  订单
-  wx.navigateTo({url:"/pages/store/order/detail/detail"})
+    let shops = wx.getStorageSync("shop");
+    if(shops.length===0){
+      wx.showToast({
+        title:"不含有任何订单",
+        icon:"none"
+      })
+      return;
+    }
+  wx.navigateTo({url:"/pages/store/order/detail/detail?type=0"})
   }
 })

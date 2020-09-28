@@ -1,7 +1,12 @@
 Page({
   data: {
+    money:0
   },
   onLoad: function (options) {
+   let money=  wx.getStorageSync("money");
+   this.setData({
+     money:money
+   })
     console.log("onLoad")
   },
   onReady: function () {
@@ -24,5 +29,8 @@ Page({
   },
   onShareAppMessage: function () {
     console.log("onShareAppMessage")
+  },
+  comein:function(){
+    wx.navigateTo({url:"/pages/store/account/income/income"})
   }
 })

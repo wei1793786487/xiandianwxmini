@@ -1,10 +1,16 @@
+var util = require('../../../../utils/util.js')
 Page({
   data: {
     //  支付方式 0为快捷支付 1为银联支付 3为微信支付
     pay_way: 0,
-    pay_money: 0
+    pay_money: 0,
+    income_log:[]
   },
   onLoad: function (options) {
+     let income_log = wx.getStorageSync("income_log");
+     this.setData({
+       income_log:income_log
+     })
     console.log("onLoad")
   },
   onReady: function () {
@@ -27,6 +33,9 @@ Page({
   },
   onShareAppMessage: function () {
     console.log("onShareAppMessage")
+  },
+  generateUuid: function (length = 5) {
+    return Number(Math.random().toString().substr(3, length) + Date.now()).toString(36);
   },
   chance: function (options) {
     this.setData({
@@ -65,6 +74,15 @@ Page({
         title: "支付成功"
       })
     }, 2000);
+
+    let income_log=this.data.income_log;
+    income_log.push({
+      date:util.formatTime(new Date()),
+      money:this.data.pay_money,
+      pay_type:pay_way,
+      id:this.generateUuid()
+    })
+    wx.setStorageSync("income_log",income_log)
   },
   bindblurHandle: function (even) {
     this.setData({

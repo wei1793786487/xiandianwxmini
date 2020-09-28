@@ -1,0 +1,38 @@
+<view class="info">
+    <image class="backimg" src="/res/icons/profile_bg.png"  />
+    <view class='up'>
+        <image class="back" src="/res/icons/ewm.png"  />
+        <view>admin</view>
+        <view>会员卡号:9527654214</view>
+    </view>
+</view>
+<!-- 页面跳转 -->
+<view class="contont">
+    <view class="body">
+        <image src="/res/icons/1.png"  />
+        <view class="text">余额</view>
+        <view class="rigth">
+            <view class="hava_money">￥{{money}}</view>
+            <view class="chongzhi" bindtap="comein">充值</view>
+        </view>
+    </view>
+    <navigator url="../../history/payout/payout">
+        <view class="body">
+            <image src="/res/icons/3.png"  />
+            <view class="text">消费记录</view>
+        </view>
+    </navigator>
+    <navigator url="../../history/payin/payin">
+        <view class="body">
+            <image src="/res/icons/2.png"  />
+            <view class="text">充值记录</view>
+        </view>
+    </navigator>
+    <navigator url="../profile/profile">
+      <view class="body">
+        <image src="/res/icons/4.png"  />
+        <view class="text">我的资料</view>
+    </view>
+    </navigator>
+  
+</view>

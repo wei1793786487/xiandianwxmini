@@ -1,0 +1,8 @@
+<view class="content">
+    <view>
+        <view class="name">云计算课程</view>
+        <view class="order_id">单号：11111111</view>
+        <view class="time">日期：2018-01-01</view>
+    </view>
+    <view class="sapnd">+1000</view>
+</view>

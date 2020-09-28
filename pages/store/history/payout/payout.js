@@ -1,6 +1,12 @@
 Page({
-  data: {},
+  data: {
+     log:[]
+  },
   onLoad: function (options) {
+   let logs= wx.getStorageSync("pay_log");
+   this.setData({
+    log:logs 
+   })
     console.log("onLoad")
   },
   onReady: function () {
