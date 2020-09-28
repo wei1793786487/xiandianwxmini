@@ -1,0 +1,23 @@
+.contaion{
+display: flex;
+justify-content: space-between;
+border-top: 1px solid  grey
+}
+.rigth{
+ margin:30rpx; 
+}
+.order{
+ color: grey;
+ font-size: 30rpx;
+}
+.money{
+margin: 40rpx;
+color: red;
+}
+.contaion_last{
+    display: flex;
+justify-content: space-between;
+border-top: 1px solid  grey;
+border-bottom: 1px solid  grey;
+
+}

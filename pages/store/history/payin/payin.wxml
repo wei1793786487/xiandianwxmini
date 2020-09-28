@@ -1,0 +1,17 @@
+
+<block wx:for="{{log}}">
+<view wx:if="{{index!==(log.length-1)}}"  class="contaion"> 
+    <view class="rigth">
+        <view>{{item.date}}</view>
+        <view class="order">单号:{{item.id}}</view>
+    </view>
+    <view class="money">+{{item.money}}</view>
+</view>
+<view wx:else  class="contaion_last"> 
+    <view class="rigth">
+        <view>{{item.date}}</view>
+        <view class="order">单号:{{item.id}}</view>
+    </view>
+    <view class="money">+{{item.money}}</view>
+</view>
+</block>

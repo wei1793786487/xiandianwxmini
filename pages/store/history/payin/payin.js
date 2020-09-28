@@ -1,8 +1,13 @@
 Page({
   data: {
+    log:[]
   },
 
   onLoad: function (options) {
+    var log= wx.getStorageSync("income_log");
+    this.setData({
+      log:log
+    })
     console.log("onLoad")
   },
   onReady: function () {
