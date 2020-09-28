@@ -1,0 +1,25 @@
+<view class="info">
+    <view>姓名</view>
+    <view>NICK</view>
+    <view>联系电话</view>
+    <view>12345678901</view>
+</view>
+<view class="info2">
+    <view>
+        <view>收货地址(家)</view>
+        <view>
+        <input placeholder="请填写收货地址"> </input>
+        </view>
+    </view>
+    <image src="/res/icons/lc.png"/>
+</view>
+
+<view class="info2">
+    <view>
+        <view>发货地址(公司)</view>
+        <view>
+        <input placeholder="请填写发货地址"> </input>
+        </view>
+    </view>
+   <image src="/res/icons/lc.png"/>
+</view>

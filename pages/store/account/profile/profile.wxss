@@ -1,0 +1,18 @@
+.info2{
+    margin: 30rpx;
+    border-bottom: 1px solid gray;
+    display: flex;
+    justify-content: space-between
+}
+.info{
+    margin: 30rpx;
+    border-bottom: 1px solid gray;
+}
+.info view{
+  margin-bottom: 20rpx;
+}
+
+.info2 image{
+  height: 60rpx;
+  width: 60rpx;
+}
