@@ -1,8 +1,19 @@
-<view class="content">
-    <view>
-        <view class="name">云计算课程</view>
-        <view class="order_id">单号：11111111</view>
-        <view class="time">日期：2018-01-01</view>
+
+<block wx:for="{{log}}">
+    <view class="content" wx:if="{{index===0}}">
+        <view>
+            <view class="name">{{item.tilte}}</view>
+            <view class="order_id">单号：{{item.order_id}}</view>
+            <view class="time">日期：{{item.date}}</view>
+        </view>
+        <view class="sapnd">-{{item.money}}</view>
     </view>
-    <view class="sapnd">+1000</view>
-</view>
+        <view  wx:else class="content-no" >
+        <view>
+            <view class="name">{{item.tilte}}</view>
+            <view class="order_id">单号：{{item.order_id}}</view>
+            <view class="time">日期：{{item.date}}</view>
+        </view>
+        <view class="sapnd">-{{item.money}}</view>
+    </view>
+</block>

@@ -3,7 +3,8 @@
     justify-content: space-between;
     border-top:1px solid grey;
     border-bottom:1px solid gray;
-    margin: 50rpx;
+    margin: 40rpx;
+    margin-bottom: -37rpx;
 }
 .order_id{
     font-size: 30rpx;
@@ -20,6 +21,13 @@
    margin-top: 20rpx;
 }
 .time{
+    font-size: 30rpx;
    margin-bottom: 20rpx;
 
+}
+.content-no{
+    display: flex;
+    justify-content: space-between;
+    border-bottom:1px solid gray;
+    margin :40rpx ; 
 }
