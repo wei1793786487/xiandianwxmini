@@ -19,15 +19,14 @@ Page({
     var money = wx.getStorageSync("money");
     //获取订单列表
     let order_list = wx.getStorageSync("order_list")
+    //获取付款日志
     //说明是从新建里面来的
+    let pay_log = wx.getStorageSync("pay_log")
     if (options.type === "0") {
-      //获取付款日志
-      let pay_log = wx.getStorageSync("pay_log")
       //生成uuid
       var uuid = this.generateUuid();
       //获取商品的列表
       var shop = wx.getStorageSync("shop");
-
       var price = 0;
       shop.forEach(function (element) {
         price += parseInt(element.price);
@@ -54,7 +53,28 @@ Page({
       wx.setStorageSync("order_list", order_list)
     } else if (options.type === "1") {
       // 说明是从订单页面来的
-
+      let id = options.id;
+      let choose_order;
+      order_list.forEach(function (element) {
+        if (element.order_id === id) {
+          choose_order = element;
+        }
+      });
+       var price = 0;
+      choose_order.shop_list.forEach(function (element) {
+        price += parseInt(element.price);
+      });
+      this.setData({
+         order_list: order_list,
+        choose_order:choose_order,
+        pay_log: pay_log,
+        hava_money: money,
+        shop_list: choose_order.shop_list,
+        order_id: choose_order.order_id,
+        all_price: price,
+        payType: "0",
+        is_pay:choose_order.is_pay
+      })
     }
 
 
@@ -140,7 +160,7 @@ Page({
   chanceOderStatus: function (payType) {
 
     this.data.choose_order.is_pay = true;
-    this.data.choose_order.payType = payType+"";
+    this.data.choose_order.payType = payType + "";
     var order_list = this.data.order_list;
     console.log(order_list)
     console.log(this.data.choose_order)
@@ -151,9 +171,6 @@ Page({
         index = i;
       }
     }
-    console.log("index是===============")
-    console.log(index)
-    console.log("index是===============")
     //替换位置
     order_list[index] = this.data.choose_order;
     wx.setStorageSync("order_list", order_list)

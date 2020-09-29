@@ -1,0 +1,50 @@
+.tab{
+display: flex;
+justify-content: space-between;
+text-align: center;
+border-bottom: 2rpx solid gray;
+height: 66rpx;
+line-height: 66rpx;
+}
+.tab-item{
+ flex: 1
+}
+
+.active{
+  color:#F65959;
+  border-bottom: 4rpx solid #F65959;
+}
+image{
+height: 100rpx;
+width: 130rpx;
+margin: 20rpx;
+}
+button{
+  height: 90rpx;
+  font-size: 40rpx;
+  line-height: 100rpx;
+  color: red;
+  border-radius: 20rpx;
+  border: 3rpx solid red;
+}
+        
+.order_id{
+  font-size: 30rpx;
+  color: gray;
+}
+.border{
+  display: flex;
+  justify-content: space-between;
+  margin-top:20rpx; 
+}    
+.center{
+  margin-left:50rpx; 
+  flex: 1
+}
+
+swiper{
+ height: 100%;
+}
+page{
+  height: 100%;
+}
