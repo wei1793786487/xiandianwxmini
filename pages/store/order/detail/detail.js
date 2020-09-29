@@ -9,33 +9,55 @@ Page({
     payType: "0",
     hava_money: 1,
     pay_log: [],
-    oder_list: []
+    oder_list: [],
+    choose_order: {}
   },
 
   onLoad: function (options) {
     console.log(options)
-    //获取付款日志
-    let pay_log = wx.getStorageSync("pay_log")
+    //获取多少钱
+    var money = wx.getStorageSync("money");
     //获取订单列表
     let order_list = wx.getStorageSync("order_list")
-    //生成uuid
-    var uuid = this.generateUuid();
-    //获取商品的列表
-    var shop = wx.getStorageSync("shop");
-    var money = wx.getStorageSync("money");
-    var price = 0;
-    shop.forEach(function (element) {
-      price += parseInt(element.price);
-    });
-    this.setData({
-      order_list:order_list,
-      pay_log: pay_log,
-      hava_money: money,
-      shop_list: shop,
-      order_id: uuid,
-      all_price: price
-    })
-    console.log("onLoad")
+    //说明是从新建里面来的
+    if (options.type === "0") {
+      //获取付款日志
+      let pay_log = wx.getStorageSync("pay_log")
+      //生成uuid
+      var uuid = this.generateUuid();
+      //获取商品的列表
+      var shop = wx.getStorageSync("shop");
+
+      var price = 0;
+      shop.forEach(function (element) {
+        price += parseInt(element.price);
+      });
+      var order = {
+        shop_list: shop,
+        order_id: uuid,
+        is_pay: false,
+        payType: "0",
+      }
+      this.setData({
+        order_list: order_list,
+        pay_log: pay_log,
+        hava_money: money,
+        shop_list: shop,
+        order_id: uuid,
+        all_price: price,
+        payType: "0",
+        choose_order: order
+      })
+      //清空购物车
+      wx.setStorageSync("shop", [])
+      order_list.push(order)
+      wx.setStorageSync("order_list", order_list)
+    } else if (options.type === "1") {
+      // 说明是从订单页面来的
+
+    }
+
+
   },
   generateUuid: function (length = 5) {
     return Number(Math.random().toString().substr(3, length) + Date.now()).toString(36);
@@ -101,8 +123,7 @@ Page({
         is_pay: true,
       })
     }, 2000);
-
-    //生成支付日志
+    this.chanceOderStatus(type)    //生成支付日志
     let logs = {
       tilte: this.data.shop_list[0].title + "等" + this.data.shop_list.length + "个",
       order_id: this.data.order_id,
@@ -115,6 +136,27 @@ Page({
     //清空购物 
     wx.setStorageSync("shop", [])
 
+  },
+  chanceOderStatus: function (payType) {
+
+    this.data.choose_order.is_pay = true;
+    this.data.choose_order.payType = payType+"";
+    var order_list = this.data.order_list;
+    console.log(order_list)
+    console.log(this.data.choose_order)
+    //获取选择的订单的索引
+    var index;
+    for (var i = 0; i < order_list; i++) {
+      if (order_list[i].order_id === this.data.choose_order.order_id) {
+        index = i;
+      }
+    }
+    console.log("index是===============")
+    console.log(index)
+    console.log("index是===============")
+    //替换位置
+    order_list[index] = this.data.choose_order;
+    wx.setStorageSync("order_list", order_list)
   }
 
 })

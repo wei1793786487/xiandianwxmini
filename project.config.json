@@ -103,6 +103,13 @@
 					"id": -1,
 					"name": "pages/store/booking/detail/detail",
 					"pathName": "pages/store/booking/detail/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/store/order/detail/detail",
+					"pathName": "pages/store/order/detail/detail",
 					"scene": null
 				}
 			]
