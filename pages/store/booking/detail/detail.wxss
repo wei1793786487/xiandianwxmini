@@ -1,0 +1,23 @@
+.contains{
+    display: flex;
+    border-bottom:1px solid gray;
+    margin-bottom: 20rpx;
+}
+.input{
+    flex: 2;
+    /*margin-left:30rpx; */
+}
+textarea{
+    flex: 1
+}
+.app{
+margin: 30rpx;
+}
+button{
+background-color: deeppink;
+color: white;
+position: fixed;
+bottom: 0;
+width: 100%;
+margin-left: -30rpx;
+}

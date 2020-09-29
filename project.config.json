@@ -96,6 +96,13 @@
 					"id": -1,
 					"name": "pages/store/account/profile/profile",
 					"pathName": "pages/store/account/profile/profile",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/store/booking/detail/detail",
+					"pathName": "pages/store/booking/detail/detail",
 					"scene": null
 				}
 			]

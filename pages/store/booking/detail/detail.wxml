@@ -1,0 +1,24 @@
+<view class="app">
+    <form bindsubmit="summit">
+        <view class="contains">
+            服务项目:    
+            <input name="progect" model:value="{{progect}}" class="input" placeholder="请输入服务项目的名称"  />
+        </view>
+        <view class="contains">
+            到店日期:    
+           <picker mode="date" name="date" model:value="{{date}}" >
+            {{date}}</picker>
+        </view>
+        <view class="contains">
+            到店时间:    
+           <picker  mode="time" name="time" model:value="{{time}}">
+            {{time}}</picker>
+        </view>
+        <view class="contains">
+            留言:
+        <textarea name="message" model:value="{{message}}" placeholder="请输入留言">
+        </textarea>
+    </view>
+    <button form-type="submit" >立即预约</button>
+</form>
+</view>

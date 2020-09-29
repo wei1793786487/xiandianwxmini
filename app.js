@@ -5,6 +5,7 @@ App({
     let pay_log = wx.getStorageSync("pay_log")
     let income_log = wx.getStorageSync("income_log")
     let order_list = wx.getStorageSync("order_list")
+    let appointment = wx.getStorageSync("appointment")
     if (shops === null || shops === "") {
       wx.setStorageSync("shop", [])
     }
@@ -19,6 +20,9 @@ App({
     }
     if(order_list===null||order_list===""){
       wx.setStorageSync("order_list", [])
+    }
+    if(appointment===null||appointment===""){
+      wx.setStorageSync("appointment",[])
     }
     console.log('App Launch')
   },
